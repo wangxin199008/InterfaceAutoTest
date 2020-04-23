@@ -7,6 +7,7 @@
     <groupId>InterfaceAutoTest</groupId>
     <artifactId>InterfaceAutoTest</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <build>
         <plugins>
 
@@ -99,6 +100,14 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.59</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>

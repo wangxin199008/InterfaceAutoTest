@@ -5,6 +5,7 @@ import com.testConfig.Constant;
 import com.testConfig.RestClient;
 import com.tools.*;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -83,6 +84,7 @@ public class AutoTest {
             Log.info("断言Response是否与预期结果一致: "+assertKeyWord +" ---> 断言失败");
             excelUtil.setCellData(Integer.parseInt(rowNumber.split("[.]")[0]), excelUtil.getLastColumnNum(), "Fail");
             failCount.add(rowNumber);
+            Reporter.log(testCaseName+"接口返回数据成功，但是断言失败，你想要的结果是："+assertKeyWord+"但是实际结果是："+responseObject.toString());
             Log.info("测试结果成功写入excel数据文件中的测试执行结果列");
             Assert.fail("断言Response是否与预期结果一致: "+assertKeyWord +" 失败");
         }
@@ -92,9 +94,9 @@ public class AutoTest {
         Log.info("断言Response是否与预期结果一致: "+assertKeyWord +" ---> 断言成功");
         excelUtil.setCellData(Integer.parseInt(rowNumber.split("[.]")[0]),excelUtil.getLastColumnNum(),"Pass");
         passCount.add(rowNumber);
+        Reporter.log(testCaseName+"测试成功，并且断言结果正确");
         Log.info("测试结果成功写入excel数据文件中的测试执行结果列");
         Log.endTestCase(testCaseName);
-        System.out.println("case成功:"+passCount+"case失败" + failCount);
     }
 
 
